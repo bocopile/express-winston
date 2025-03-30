@@ -1,0 +1,4 @@
+log/console/*.log
+log/error/*.log
+dist
+package-lock.json
