@@ -49,5 +49,9 @@ function packageInfo(content) {
     const ecosystemConfigSource = path.resolve("./config/ecosystem.config.cjs");
     const ecosystemConfigDestination = path.join(distPath, "ecosystem.config.cjs");
 
+    const DockerfileSource = path.resolve("./config/Dockerfile");
+    const DockerfileDestination = path.join(distPath, "Dockerfile");
+
     fs.copyFileSync(ecosystemConfigSource, ecosystemConfigDestination);
+    fs.copyFileSync(DockerfileSource,DockerfileDestination);
 })();
