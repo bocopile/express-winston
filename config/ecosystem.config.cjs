@@ -8,13 +8,13 @@ module.exports = {
                 NODE_ENV: 'development',
                 PORT: 4000,
                 REPOSITORY : '',
-                LOG_PATH:  '/Users/bkshin/IdeaProjects/logs'
+                LOG_PATH:  '../logs'
             },
             env_production: {
                 NODE_ENV: 'production',
                 PORT: 4000, // 프로덕션 포트 변경
                 REPOSITORY : '',
-                LOG_PATH:  '/Users/bkshin/IdeaProjects/logs'
+                LOG_PATH:  '../logs'
             }
         },
     ]
