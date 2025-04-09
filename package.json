@@ -5,7 +5,7 @@
     "start": "node ./bin/www",
     "postbuild": "node config/deployProcess.js",
     "build": "rm -rf dist &&  ncc build ./app.js -o dist",
-    "minify": "  minify ./dist/index.js > ./dist/index.min.js"
+    "minify": "minify ./dist/index.js > ./dist/index.min.js"
 
   },
   "dependencies": {
