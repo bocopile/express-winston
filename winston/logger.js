@@ -3,7 +3,7 @@ const DailyRotateFile = require("winston-daily-rotate-file");
 const path = require("path");
 
 // 로그 디렉토리 설정
-const logDirectory = path.join(__dirname, process.env.LOG_PATH);
+const logDirectory = path.join(__dirname, process.env.LOG_PATH || '../logs');
 
 // Console 로그 설정
 const consoleTransport = new DailyRotateFile({
