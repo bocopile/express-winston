@@ -1,0 +1,22 @@
+name: Trigger Jenkins on Tag Push
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  trigger-jenkins:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Jenkins Job
+        run: |
+          curl -X POST "$JENKINS_URL/job/node-trigger-pipeline/buildWithParameters" \
+            --user "$JENKINS_USER:$JENKINS_API_TOKEN" \
+            --data-urlencode "TAG_NAME=${GITHUB_REF#refs/tags/}"
+        env:
+          JENKINS_URL: ${{ secrets.JENKINS_URL }}
+          JENKINS_USER: ${{ secrets.JENKINS_USER }}
+          JENKINS_API_TOKEN: ${{ secrets.JENKINS_API_TOKEN }}
+          JENKINS_NODE_JOB: ${{ secrets.JENKINS_NODE_JOB }}
