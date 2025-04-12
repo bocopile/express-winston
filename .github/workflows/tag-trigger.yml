@@ -17,7 +17,9 @@ jobs:
           echo "Detected tag: $TAG_NAME"
           
           CRUMB=$(curl -s --user "$JENKINS_USER:$JENKINS_API_TOKEN" \
-            "$JENKINS_URL/crumbIssuer/api/json" | sed -E 's/.*"crumb":"([^"]*)".*/\1/')
+            "$JENKINS_URL/crumbIssuer/api/json" \
+            | sed -E 's/.*"crumb":"([^"]*)".*/\1/' \
+            | tr -d '\n')
           
           curl -X POST $JENKINS_URL/job/node-pipeline-trigger/buildWithParameters \
           --user $JENKINS_USER:$JENKINS_API_TOKEN \
