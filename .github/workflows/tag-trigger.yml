@@ -16,8 +16,12 @@ jobs:
           TAG_NAME=${GITHUB_REF#refs/tags/}
           echo "Detected tag: $TAG_NAME"
           
+          CRUMB=$(curl -s --user "$JENKINS_USER:$JENKINS_API_TOKEN" \
+            "$JENKINS_URL/crumbIssuer/api/json" | sed -E 's/.*"crumb":"([^"]*)".*/\1/')
+          
           curl -X POST $JENKINS_URL/job/node-pipeline-trigger/buildWithParameters \
           --user $JENKINS_USER:$JENKINS_API_TOKEN \
+          -H "Jenkins-Crumb:$CRUMB" \
           --data "TAG_NAME=$TAG_NAME"
         env:
           JENKINS_URL: ${{ secrets.JENKINS_URL }}
