@@ -18,7 +18,7 @@ jobs:
           
           curl -X POST $JENKINS_URL/job/node-pipeline-trigger/buildWithParameters \
           --user $JENKINS_USER:$JENKINS_API_TOKEN \
-          --data "TAG_NAME=$TAG_NAME
+          --data "TAG_NAME=$TAG_NAME"
         env:
           JENKINS_URL: ${{ secrets.JENKINS_URL }}
           JENKINS_USER: ${{ secrets.JENKINS_USER }}
