@@ -1,22 +1,20 @@
 {
   "name": "express-winston",
-  "version": "1.0.7",
+  "version": "1.0.6",
   "scripts": {
     "start": "node ./bin/www",
     "postbuild": "node config/deployProcess.js",
     "build": "rm -rf dist &&  ncc build ./app.js -o dist",
     "minify": "minify ./dist/index.js > ./dist/index.min.js"
+
   },
   "dependencies": {
-    "-": "^0.0.1",
     "cookie-parser": "^1.4.4",
     "debug": "^2.6.9",
     "express": "^4.16.1",
     "http-errors": "^1.6.3",
     "morgan": "^1.9.1",
     "pug": "^2.0.0-beta11",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0"
   }
