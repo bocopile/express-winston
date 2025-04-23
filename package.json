@@ -1,12 +1,15 @@
 {
   "name": "express-winston",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "scripts": {
     "start": "node ./bin/www",
     "postbuild": "node config/deployProcess.js",
     "build": "rm -rf dist &&  ncc build ./app.js -o dist",
     "minify": "minify ./dist/index.js > ./dist/index.min.js"
 
+  },
+  "publishConfig": {
+    "registry": "http://40.89.208.216:8081:8081/repository/node_module/"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
